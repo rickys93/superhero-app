@@ -1,6 +1,6 @@
 import React from "react";
 
-const superheroFilters = (props) => {
+const SuperheroFilters = (props) => {
     function setHealthy() {
         const healthyOnly = !props.healthyOnly;
         props.setHealthyOnly(healthyOnly);
@@ -45,4 +45,4 @@ const superheroFilters = (props) => {
     );
 };
 
-export default superheroFilters;
+export default SuperheroFilters;

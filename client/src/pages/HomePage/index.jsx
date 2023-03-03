@@ -8,9 +8,9 @@ const linkStyle = {
 const HomePage = () => {
     return (
         <main>
-            <h1>superhero Rankings</h1>
+            <h1>Superhero Rankings</h1>
             <p>
-                Welcome to <b>superhero Rankings</b>, the world's most famous
+                Welcome to <b>Superhero Rankings</b>, the world's most famous
                 superhero-ranking site!
             </p>
             <p>

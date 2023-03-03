@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { superheroForm } from "../../components";
+import { SuperheroForm } from "../../components";
 
-export default function AddsuperheroPage() {
+export default function AddSuperheroPage() {
     const [inputText, setInputText] = useState("");
     const [description, setDescription] = useState("");
     const [message, setMessage] = useState("");
@@ -11,7 +11,7 @@ export default function AddsuperheroPage() {
     return (
         <main>
             <h2>Add your favorite superhero:</h2>
-            <superheroForm
+            <SuperheroForm
                 inputText={inputText}
                 setInputText={setInputText}
                 description={description}

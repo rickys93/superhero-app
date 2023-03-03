@@ -4,25 +4,25 @@ const linkStyle = {
     color: "#875053",
 };
 
-const BestsuperheroPage = () => {
+const BestSuperheroPage = () => {
     const [loading, setLoading] = useState(false);
-    const [superhero, setsuperhero] = useState({});
+    const [superhero, setSuperhero] = useState({});
 
     useEffect(() => {
         setLoading(true);
-        async function loadsuperhero() {
+        async function loadSuperhero() {
             const response = await fetch(
                 "http://localhost:3000/superheros/top"
             );
             const data = await response.json();
-            setsuperhero(data);
+            setSuperhero(data);
             setLoading(false);
         }
 
-        loadsuperhero();
+        loadSuperhero();
     }, []);
 
-    function displaysuperhero() {
+    function displaySuperhero() {
         return (
             <main>
                 <h2>The best superhero ever:</h2>
@@ -56,8 +56,8 @@ const BestsuperheroPage = () => {
             <em>loading...</em>
         </h2>
     ) : (
-        displaysuperhero()
+        displaySuperhero()
     );
 };
 
-export default BestsuperheroPage;
+export default BestSuperheroPage;

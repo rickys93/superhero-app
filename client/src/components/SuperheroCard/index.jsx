@@ -5,14 +5,14 @@ const linkStyle = {
     color: "#875053",
 };
 
-const superheroCard = ({
+const SuperheroCard = ({
     id,
     name,
     healthy,
     vegetarian,
     votes,
     vote,
-    deletesuperhero,
+    deleteSuperhero,
 }) => {
     return (
         <div className="superhero-card">
@@ -30,10 +30,10 @@ const superheroCard = ({
                 <button onClick={() => vote(id, 1)}>+</button>
                 <button onClick={() => vote(id, -1)}>-</button>
             </p>
-            <button onClick={() => deletesuperhero(id)}>Delete</button>
+            <button onClick={() => deleteSuperhero(id)}>Delete</button>
             <br></br>
         </div>
     );
 };
 
-export default superheroCard;
+export default SuperheroCard;

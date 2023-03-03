@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
-const superheroPage = () => {
+const SuperheroPage = () => {
     const { id } = useParams();
 
     const [loading, setLoading] = useState(false);
-    const [superhero, setsuperhero] = useState({});
+    const [superhero, setSuperhero] = useState({});
 
     useEffect(() => {
         setLoading(true);
-        async function loadsuperhero() {
+        async function loadSuperhero() {
             const response = await fetch(
                 `http://localhost:3000/superheros/${id}`
             );
 
             if (response.status === 200) {
                 const data = await response.json();
-                setsuperhero(data);
+                setSuperhero(data);
                 setLoading(false);
             }
         }
 
-        loadsuperhero();
+        loadSuperhero();
     }, []);
 
-    function displaysuperhero() {
+    function displaySuperhero() {
         return (
             <main>
                 <h1 className="close-title">{superhero.name}</h1>
@@ -54,8 +54,8 @@ const superheroPage = () => {
             <em>loading...</em>
         </h2>
     ) : (
-        displaysuperhero()
+        displaySuperhero()
     );
 };
 
-export default superheroPage;
+export default SuperheroPage;
