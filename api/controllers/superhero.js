@@ -1,9 +1,9 @@
-const superhero = require("../models/superhero.js");
+const Superhero = require("../models/superhero.js");
 
 async function index(req, res) {
     try {
-        const superheros = await superhero.getAll();
-        res.status(200).json(superheros);
+        const superheroes = await Superhero.getAll();
+        res.status(200).json(superheroes);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -12,7 +12,7 @@ async function index(req, res) {
 async function show(req, res) {
     try {
         const id = parseInt(req.params.id);
-        const superhero = await superhero.getOneById(id);
+        const superhero = await Superhero.getOneById(id);
         res.status(200).json(superhero);
     } catch (err) {
         res.status(404).json({ error: err.message });
@@ -22,7 +22,7 @@ async function show(req, res) {
 async function getTop(req, res) {
     try {
         const id = parseInt(req.params.id);
-        const superhero = await superhero.getTopsuperhero(id);
+        const superhero = await Superhero.getTopsuperhero(id);
         res.status(200).json(superhero);
     } catch (err) {
         res.status(404).json({ error: err.message });
@@ -31,7 +31,7 @@ async function getTop(req, res) {
 
 async function create(req, res) {
     try {
-        const superhero = await superhero.create(req.body);
+        const superhero = await Superhero.create(req.body);
         res.status(201).json(superhero);
     } catch (err) {
         res.status(404).json({ error: err.message });
@@ -42,7 +42,7 @@ async function update(req, res) {
     try {
         const id = parseInt(req.params.id);
         const data = req.body;
-        const superhero = await superhero.getOneById(id);
+        const superhero = await Superhero.getOneById(id);
         const result = await superhero.update(data);
         res.status(200).json(result);
     } catch (err) {
@@ -53,7 +53,7 @@ async function update(req, res) {
 async function destroy(req, res) {
     try {
         const id = parseInt(req.params.id);
-        const superhero = await superhero.getOneById(id);
+        const superhero = await Superhero.getOneById(id);
         await superhero.destroy();
         res.status(204).json(id);
     } catch (err) {

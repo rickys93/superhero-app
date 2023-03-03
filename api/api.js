@@ -12,11 +12,11 @@ api.use(morgan("tiny"));
 
 api.get("/", (req, res) => {
     res.json({
-        title: "superhero Rankings",
-        description: "Find and rate the best superheros ever!",
+        title: "Superhero Rankings",
+        description: "Find and rate the best superheroes ever!",
     });
 });
 
-api.use("/superheros", superheroRouter);
+api.use("/superheroes", superheroRouter);
 
 module.exports = api;

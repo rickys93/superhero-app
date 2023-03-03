@@ -1,7 +1,7 @@
 # superhero Rankings App Server
 The superhero Rankings App is a web application that consists of both a frontend and a backend. The backend is responsible for processing requests and serving data to the frontend, while the frontend is responsible for rendering the user interface.
 
-The server is built using Node.js and Express, a popular framework for building web applications. The server communicates with a PostgreSQL database, where all superheros data is stored.
+The server is built using Node.js and Express, a popular framework for building web applications. The server communicates with a PostgreSQL database, where all superheroes data is stored.
 
 ## Installing Required Libraries
 To install the required libraries, follow these steps:
@@ -39,12 +39,12 @@ API URL base: `http://localhost:3000/`
 
 The API has the following routes and functionalities:
 - `/`	`GET`	Returns a JSON object describing the API.
-- `/superheros`	`GET`	Returns a JSON object containing all the superheros.
-- `/superheros`	`POST`	Accepts a JSON object and uses it to create and store a new superhero.
-- `/superheros/top`	`GET`	Returns a JSON object representing the superhero with the most votes.
-- `/superheros/:id`	`GET`	Returns a JSON object representing a single superhero from the collection, selected by `:id`.
-- `/superheros/:id`	`PATCH`	Updates a specific superhero, incrementing or decrementing its vote count.
-- `/superheros/:id`	`DELETE`	Deletes a specific superhero, selected by `:id`.
+- `/superheroes`	`GET`	Returns a JSON object containing all the superheroes.
+- `/superheroes`	`POST`	Accepts a JSON object and uses it to create and store a new superhero.
+- `/superheroes/top`	`GET`	Returns a JSON object representing the superhero with the most votes.
+- `/superheroes/:id`	`GET`	Returns a JSON object representing a single superhero from the collection, selected by `:id`.
+- `/superheroes/:id`	`PATCH`	Updates a specific superhero, incrementing or decrementing its vote count.
+- `/superheroes/:id`	`DELETE`	Deletes a specific superhero, selected by `:id`.
 
 Use an API testing platform such as Hoppscotch to test the API.
 
