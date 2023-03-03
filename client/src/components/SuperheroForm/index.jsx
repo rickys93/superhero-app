@@ -1,16 +1,27 @@
 import React from "react";
+import StatInput from "../StatInput";
 
-export default function superheroForm({
+export default function SuperheroForm({
     inputText,
     setInputText,
     description,
     setDescription,
     message,
     setMessage,
-    vegetarian,
-    setVegetarianCheckbox,
-    healthy,
-    setHealthyCheckbox,
+    active,
+    setActiveCheckbox,
+    intelligence,
+    setIntelligenceCheckbox,
+    strength,
+    setStrengthCheckbox,
+    speed,
+    setSpeedCheckbox,
+    durability,
+    setDurabilityCheckbox,
+    power,
+    setPowerCheckbox,
+    combat,
+    setCombatCheckbox,
 }) {
     function handleInput(e) {
         setInputText(e.target.value);
@@ -20,12 +31,28 @@ export default function superheroForm({
         setDescription(e.target.value);
     }
 
-    function handleVegetarian() {
-        setVegetarianCheckbox(!vegetarian);
+    function handleActive() {
+        setActiveCheckbox(!active);
     }
 
-    function handleHealthy() {
-        setHealthyCheckbox(!healthy);
+    function handleIntelligence(e) {
+        setIntelligenceCheckbox(e.target.value);
+        console.log(e.target.value);
+    }
+    function handleStrength(e) {
+        setStrengthCheckbox(e.target.value);
+    }
+    function handleSpeed(e) {
+        setSpeedCheckbox(e.target.value);
+    }
+    function handleDurability(e) {
+        setDurabilityCheckbox(e.target.value);
+    }
+    function handlePower(e) {
+        setPowerCheckbox(e.target.value);
+    }
+    function handleCombat(e) {
+        setCombatCheckbox(e.target.value);
     }
 
     function handleSubmit(e) {
@@ -34,10 +61,15 @@ export default function superheroForm({
             fetch("http://localhost:3000/superheroes", {
                 method: "POST",
                 body: JSON.stringify({
-                    superhero_name: inputText,
-                    superhero_description: description,
-                    healthy: healthy,
-                    vegetarian: vegetarian,
+                    name: inputText,
+                    description: description,
+                    active: active,
+                    intelligence: intelligence,
+                    strength: strength,
+                    speed: speed,
+                    durability: durability,
+                    power: power,
+                    combat: combat,
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
@@ -51,7 +83,7 @@ export default function superheroForm({
                         );
                         return;
                     } else {
-                        setMessage("superhero added successfully.");
+                        setMessage("Superhero added successfully.");
                     }
                     return res.json();
                 })
@@ -71,6 +103,13 @@ export default function superheroForm({
                 });
             setInputText("");
             setDescription("");
+            setActiveCheckbox(false);
+            setIntelligenceCheckbox(0);
+            setStrengthCheckbox(0);
+            setSpeedCheckbox(0);
+            setDurabilityCheckbox(0);
+            setPowerCheckbox(0);
+            setCombatCheckbox(0);
         } else {
             setMessage("Please enter a superhero.");
             setTimeout(() => {
@@ -102,20 +141,22 @@ export default function superheroForm({
                 />
             </div>
             <div>
+                <label htmlFor="active">Active </label>
                 <input
                     type="checkbox"
-                    name="healthy"
-                    value="healthy"
-                    onChange={handleHealthy}
+                    name="active"
+                    value="active"
+                    onChange={handleActive}
                 />
-                <label htmlFor="healthy">Healthy</label>
-                <input
-                    type="checkbox"
-                    name="vegetarian"
-                    value="vegetarian"
-                    onChange={handleVegetarian}
-                />
-                <label htmlFor="vegetarian">Vegetarian</label>
+            
+                {/* Add select component here */}
+                <StatInput label={"Intelligence"} handleInput={handleIntelligence} />
+                <StatInput label={"Strength"} handleInput={handleStrength} />
+                <StatInput label={"Speed"} handleInput={handleSpeed} />
+                <StatInput label={"Durability"} handleInput={handleDurability} />
+                <StatInput label={"Power"} handleInput={handlePower} />
+                <StatInput label={"Combat"} handleInput={handleCombat} />
+                
                 <br></br>
             </div>
             <button
