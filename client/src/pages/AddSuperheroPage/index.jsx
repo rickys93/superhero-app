@@ -5,8 +5,7 @@ export default function AddSuperheroPage() {
     const [inputText, setInputText] = useState("");
     const [description, setDescription] = useState("");
     const [message, setMessage] = useState("");
-    const [vegetarian, setVegetarianCheckbox] = useState(false);
-    const [healthy, setHealthyCheckbox] = useState(false);
+    const [active, setActiveCheckbox] = useState(false);
 
     return (
         <main>
@@ -18,11 +17,9 @@ export default function AddSuperheroPage() {
                 setDescription={setDescription}
                 message={message}
                 setMessage={setMessage}
-                vegetarian={vegetarian}
-                setVegetarianCheckbox={setVegetarianCheckbox}
-                healthy={healthy}
-                setHealthyCheckbox={setHealthyCheckbox}
+                active={active}
+                setActiveCheckbox={setActiveCheckbox}
             />
         </main>
     );
-}
+};
