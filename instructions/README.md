@@ -24,15 +24,15 @@ You may recall having to fix the code of a **superhero Rankings** back-end proje
 This time around, you will be fixing the front-end code for the *superhero Rankings* project. 
 
 The front-end allows users to:
- - View their favourite superheros
- - Vote on their favourite superheros
+ - View their favourite superheroes
+ - Vote on their favourite superheroes
  - View the top-voted superhero
  - Create a new superhero
  - Delete a superhero
 
 This full-stack project has three key elements:
 
-- An API that allows users to vote on superheros and see a list of superheros with their total votes
+- An API that allows users to vote on superheroes and see a list of superheroes with their total votes
 - A React-based front-end for interacting with the API
 - A database storing the superhero data
 
@@ -55,12 +55,12 @@ The API has the following routes and functionalities:
 | Route | Method | Response |
 | --- | --- | --- |
 | `/` | `GET` | Returns a JSON object describing the API. |
-| `/superheros` | `GET` | Returns a JSON object containing all the superheros. |
-| `/superheros` | `POST` | Accepts a JSON object and uses it to create and store a new superhero. |
-| `/superheros/top` | `GET` | Returns a JSON object representing the superhero with the most votes. |
-| `/superheros/:id` | `GET` | Returns a JSON object representing a single superhero from the collection, selected by `:id`. |
-| `/superheros/:id` | `PATCH` | Updates a specific superhero, incrementing or decrementing its vote count. |
-| `/superheros/:id` | `DELETE` | Deletes a specific superhero, selected by `:id`. |
+| `/superheroes` | `GET` | Returns a JSON object containing all the superheroes. |
+| `/superheroes` | `POST` | Accepts a JSON object and uses it to create and store a new superhero. |
+| `/superheroes/top` | `GET` | Returns a JSON object representing the superhero with the most votes. |
+| `/superheroes/:id` | `GET` | Returns a JSON object representing a single superhero from the collection, selected by `:id`. |
+| `/superheroes/:id` | `PATCH` | Updates a specific superhero, incrementing or decrementing its vote count. |
+| `/superheroes/:id` | `DELETE` | Deletes a specific superhero, selected by `:id`. |
 
 Use an API testing platform such as Hoppscotch, Postman or Insomnia to test the API, if you need to.
 
@@ -80,8 +80,8 @@ As part of the assignment, you'll need to connect a database by:
 The client consists of a React app with five distinct pages:
 
 - A "homepage", which introduces the site
-- A "superheros" page, which lists all the superheros and allows users to filter superheros in various ways as well as delete any superheros
-- A "superhero" page, accessible from the "superheros" page, which displays an individual superhero
+- A "superheroes" page, which lists all the superheroes and allows users to filter superheroes in various ways as well as delete any superheroes
+- A "superhero" page, accessible from the "superheroes" page, which displays an individual superhero
 - A "best superhero" page, which displays the current most highly-voted superhero
 - An "add a superhero" page, which allows users to create a new superhero by adding a superhero name and description as well as categorising them as 'healthy' or 'vegetarian' 
 - A "not found" page, which is displayed when a user attempts to visit a page that does not exist

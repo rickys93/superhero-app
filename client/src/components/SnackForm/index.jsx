@@ -31,7 +31,7 @@ export default function superheroForm({
     function handleSubmit(e) {
         e.preventDefault();
         if (inputText.length > 0 && description.length > 0) {
-            fetch("http://localhost:3000/superheros", {
+            fetch("http://localhost:3000/superheroes", {
                 method: "POST",
                 body: JSON.stringify({
                     superhero_name: inputText,

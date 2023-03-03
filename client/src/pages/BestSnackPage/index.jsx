@@ -12,7 +12,7 @@ const BestsuperheroPage = () => {
         setLoading(true);
         async function loadsuperhero() {
             const response = await fetch(
-                "http://localhost:3000/superheros/top"
+                "http://localhost:3000/superheroes/top"
             );
             const data = await response.json();
             setsuperhero(data);
@@ -44,7 +44,7 @@ const BestsuperheroPage = () => {
                     )}
                 </p>
 
-                <Link to="/superheros" style={linkStyle}>
+                <Link to="/superheroes" style={linkStyle}>
                     View the competition
                 </Link>
             </main>

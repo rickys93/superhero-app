@@ -11,7 +11,7 @@ const superheroPage = () => {
         setLoading(true);
         async function loadsuperhero() {
             const response = await fetch(
-                `http://localhost:3000/superheros/${id}`
+                `http://localhost:3000/superheroes/${id}`
             );
 
             if (response.status === 200) {
@@ -44,7 +44,7 @@ const superheroPage = () => {
                         ""
                     )}
                 </p>
-                <Link to="/superheros">Back</Link>
+                <Link to="/superheroes">Back</Link>
             </main>
         );
     }
