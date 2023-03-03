@@ -12,7 +12,7 @@ const BestSuperheroPage = () => {
         setLoading(true);
         async function loadSuperhero() {
             const response = await fetch(
-                "http://localhost:3000/superheros/top"
+                "http://localhost:3000/superheroes/top"
             );
             const data = await response.json();
             setSuperhero(data);
@@ -32,19 +32,32 @@ const BestSuperheroPage = () => {
                 </p>
                 <span className="votes-counter">Votes: {superhero.votes}</span>
                 <p className="superhero-details-holder">
-                    {superhero.vegetarian ? (
-                        <span className="vegetarian icon">V</span>
-                    ) : (
-                        ""
-                    )}
-                    {superhero.healthy ? (
-                        <span className="healthy icon">H</span>
+                    {superhero.active ? (
+                        <span className="vegetarian icon">A</span>
                     ) : (
                         ""
                     )}
                 </p>
-
-                <Link to="/superheros" style={linkStyle}>
+                {/* Add superhero stats */}
+                <p>
+                    Intelligence: {superhero.intelligence}
+                </p>
+                <p>
+                    Strength: {superhero.strength}
+                </p>
+                <p>
+                    Speed: {superhero.speed}
+                </p>
+                <p>
+                    Durability: {superhero.durability}
+                </p>
+                <p>
+                    Power: {superhero.power}
+                </p>
+                <p>
+                    Combat: {superhero.combat}
+                </p>
+                <Link to="/superheroes" style={linkStyle}>
                     View the competition
                 </Link>
             </main>

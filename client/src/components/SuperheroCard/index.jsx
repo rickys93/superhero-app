@@ -17,7 +17,7 @@ const SuperheroCard = ({
     return (
         <div className="superhero-card">
             <h3>
-                <Link to={`/superheros/${id}`} style={linkStyle}>
+                <Link to={`/superheroes/${id}`} style={linkStyle}>
                     {name}
                 </Link>
             </h3>

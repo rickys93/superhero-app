@@ -12,8 +12,8 @@ const PageWrapper = () => {
                     <NavLink to="/" style={styles}>
                         Home
                     </NavLink>
-                    <NavLink to="/superheros" style={styles}>
-                        All superheros
+                    <NavLink to="/superheroes" style={styles}>
+                        All superheroes
                     </NavLink>
                     <NavLink to="/best" style={styles}>
                         Best superhero ever

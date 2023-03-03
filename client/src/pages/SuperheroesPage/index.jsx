@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import { SuperheroFilters, SuperheroCard } from "../../components";
 
-const SuperherosPage = () => {
-    const [superheros, setSuperheros] = useState([]);
+const SuperheroesPage = () => {
+    const [superheroes, setSuperheroes] = useState([]);
     //const [healthyOnly, setHealthyOnly] = useState(false);
     const [activeOnly, setActiveOnly] = useState(false);
     const [textFilter, setTextFilter] = useState("");
@@ -18,13 +18,13 @@ const SuperherosPage = () => {
             }),
         };
         const response = await fetch(
-            `http://localhost:3000/superheros/${id}`,
+            `http://localhost:3000/superheroes/${id}`,
             options
         );
         if (response.status === 200) {
             const data = await response.json();
-            setSuperheros(
-                superheros.map((s) =>
+            setSuperheroes(
+                superheroes.map((s) =>
                     s.id == data.id ? { ...s, votes: data.votes } : s
                 )
             );
@@ -38,14 +38,14 @@ const SuperherosPage = () => {
                 headers: { "Content-Type": "application/json" },
             };
             const response = await fetch(
-                `http://localhost:3000/superheros/${id}`,
+                `http://localhost:3000/superheroes/${id}`,
                 options
             );
             if (response.status === 204) {
-                const updatedSuperheros = [...superheros].filter(
+                const updatedSuperheroes = [...superheroes].filter(
                     (s) => s.id !== id
                 );
-                setSuperheros(updatedSuperheros);
+                setSuperheroes(updatedSuperheroes);
             }
         } catch (error) {
             console.log("error", error);
@@ -54,20 +54,20 @@ const SuperherosPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        async function loadSuperheros() {
-            const response = await fetch("http://localhost:3000/superheros");
+        async function loadSuperheroes() {
+            const response = await fetch("http://localhost:3000/superheroes");
             if (response.status === 200) {
                 const data = await response.json();
-                setSuperheros(data);
+                setSuperheroes(data);
                 setLoading(false);
             }
         }
 
-        loadSuperheros();
+        loadSuperheroes();
     }, []);
 
-    function displaySuperheros() {
-        return superheros
+    function displaySuperheroes() {
+        return superheroes
             .filter((s) => !activeOnly || s.active)
             .filter(
                 (s) =>
@@ -95,7 +95,7 @@ const SuperherosPage = () => {
 
     return (
         <main className="superhero-main">
-            <h1>superheros</h1>
+            <h1>superheroes</h1>
             <SuperheroFilters
                 activeOnly={activeOnly}
                 textFilter={textFilter}
@@ -103,10 +103,10 @@ const SuperherosPage = () => {
                 setTextFilter={setTextFilter}
             />
             <div className="superhero-holder">
-                {loading ? <h2>Loading...</h2> : displaySuperheros()}
+                {loading ? <h2>Loading...</h2> : displaySuperheroes()}
             </div>
         </main>
     );
 };
 
-export default SuperherosPage;
+export default SuperheroesPage;

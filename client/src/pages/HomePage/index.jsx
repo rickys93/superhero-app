@@ -14,12 +14,12 @@ const HomePage = () => {
                 superhero-ranking site!
             </p>
             <p>
-                Rank superheros, see scores, and have a superheroalicious time!
+                Rank superheroes, see scores, and have a superheroalicious time!
             </p>
             <ul>
                 <li>
-                    <Link to="/superheros" style={linkStyle}>
-                        Explore superheros
+                    <Link to="/superheroes" style={linkStyle}>
+                        Explore superheroes
                     </Link>
                 </li>
                 <li>

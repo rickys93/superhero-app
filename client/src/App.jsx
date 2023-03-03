@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import {
     HomePage,
-    SuperherosPage,
+    SuperheroesPage,
     SuperheroPage,
     BestSuperheroPage,
     AddSuperheroPage,
@@ -20,8 +20,8 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<PageWrapper />}>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/superheros" element={<SuperherosPage />} />
-                    <Route path="/superheros/:id" element={<SuperheroPage />} />
+                    <Route path="/superheroes" element={<SuperheroesPage />} />
+                    <Route path="/superheroes/:id" element={<SuperheroPage />} />
                     <Route path="/best" element={<BestSuperheroPage />} />
                     <Route path="/add" element={<AddSuperheroPage />} />
                     <Route path="*" element={<NotFoundPage />} />
