@@ -5,8 +5,13 @@ export default function AddSuperheroPage() {
     const [inputText, setInputText] = useState("");
     const [description, setDescription] = useState("");
     const [message, setMessage] = useState("");
-    const [vegetarian, setVegetarianCheckbox] = useState(false);
-    const [healthy, setHealthyCheckbox] = useState(false);
+    const [active, setActiveCheckbox] = useState(false);
+    const [intelligence, setIntelligenceCheckbox] = useState(0);
+    const [strength, setStrengthCheckbox] = useState(0);
+    const [speed, setSpeedCheckbox] = useState(0);
+    const [durability, setDurabilityCheckbox] = useState(0);
+    const [power, setPowerCheckbox] = useState(0);
+    const [combat, setCombatCheckbox] = useState(0);
 
     return (
         <main>
@@ -18,11 +23,22 @@ export default function AddSuperheroPage() {
                 setDescription={setDescription}
                 message={message}
                 setMessage={setMessage}
-                vegetarian={vegetarian}
-                setVegetarianCheckbox={setVegetarianCheckbox}
-                healthy={healthy}
-                setHealthyCheckbox={setHealthyCheckbox}
+                active={active}
+                setActiveCheckbox={setActiveCheckbox}
+
+                intelligence={intelligence}
+                setIntelligenceCheckbox={setIntelligenceCheckbox}
+                strength={strength}
+                setStrengthCheckbox={setStrengthCheckbox}
+                speed={speed}
+                setSpeedCheckbox={setSpeedCheckbox}
+                durability={durability}
+                setDurabilityCheckbox={setDurabilityCheckbox}
+                power={power}
+                setPowerCheckbox={setPowerCheckbox}
+                combat={combat}
+                setCombatCheckbox={setCombatCheckbox}
             />
         </main>
     );
-}
+};

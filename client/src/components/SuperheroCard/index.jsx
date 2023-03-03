@@ -8,8 +8,13 @@ const linkStyle = {
 const SuperheroCard = ({
     id,
     name,
-    healthy,
-    vegetarian,
+    active,
+    intelligence,
+    strength,
+    speed,
+    durability,
+    power,
+    combat,
     votes,
     vote,
     deleteSuperhero,
@@ -25,11 +30,16 @@ const SuperheroCard = ({
                 <span className="votes-counter">Votes: {votes}</span>
             </p>
             <p className="superhero-details-holder">
-                {vegetarian ? <span className="vegetarian icon">V</span> : ""}
-                {healthy ? <span className="healthy icon">H</span> : ""}
+                {active ? <span className="vegetarian icon">A</span> : ""}
                 <button onClick={() => vote(id, 1)}>+</button>
                 <button onClick={() => vote(id, -1)}>-</button>
             </p>
+            <p> <span className="powerstats">Intelligence: {intelligence}</span> </p>
+            <p> <span className="powerstats">Strength: {strength}</span> </p>
+            <p> <span className="powerstats">Speed: {speed}</span> </p>
+            <p> <span className="powerstats">Durability: {durability}</span> </p>
+            <p> <span className="powerstats">Power: {power}</span> </p>
+            <p> <span className="powerstats">Combat: {combat}</span> </p>
             <button onClick={() => deleteSuperhero(id)}>Delete</button>
             <br></br>
         </div>
