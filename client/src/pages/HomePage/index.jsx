@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const linkStyle = {
-    color: "#875053",
+    color: "#99b2f5",
 };
 
 const HomePage = () => {
