@@ -10,7 +10,8 @@ CREATE TABLE superhero (
     durability INT NOT NULL DEFAULT 0,
     power INT NOT NULL DEFAULT 0,
     combat INT NOT NULL DEFAULT 0,
-    votes INT DEFAULT 0
+    votes INT DEFAULT 0,
+    active BOOLEAN DEFAULT TRUE
 );
 
 INSERT INTO superhero
