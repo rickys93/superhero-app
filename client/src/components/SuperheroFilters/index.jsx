@@ -1,14 +1,9 @@
 import React from "react";
 
 const SuperheroFilters = (props) => {
-    function setHealthy() {
-        const healthyOnly = !props.healthyOnly;
-        props.setHealthyOnly(healthyOnly);
-    }
-
-    function setVegetarian() {
-        const vegetarianOnly = !props.vegetarianOnly;
-        props.setVegetarianOnly(vegetarianOnly);
+    function setActive() {
+        const activeOnly = !props.activeOnly;
+        props.setActiveOnly(activeOnly);
     }
 
     function updateTextFilter(e) {
@@ -18,19 +13,11 @@ const SuperheroFilters = (props) => {
     return (
         <div className="superhero-filters">
             <label>
-                Healthy:
+                Active:
                 <input
                     type="checkbox"
-                    checked={props.healthyOnly}
-                    onChange={setHealthy}
-                ></input>
-            </label>
-            <label>
-                Vegetarian:
-                <input
-                    type="checkbox"
-                    checked={props.vegetarianOnly}
-                    onChange={setVegetarian}
+                    checked={props.activeOnly}
+                    onChange={setActive}
                 ></input>
             </label>
             <label>
