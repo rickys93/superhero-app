@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import './style.css'
+
 const linkStyle = {
     color: "#875053",
 };
@@ -34,12 +36,14 @@ const SuperheroCard = ({
                 <button onClick={() => vote(id, 1)}>+</button>
                 <button onClick={() => vote(id, -1)}>-</button>
             </p>
-            <p> <span className="powerstats">Intelligence: {intelligence}</span> </p>
-            <p> <span className="powerstats">Strength: {strength}</span> </p>
-            <p> <span className="powerstats">Speed: {speed}</span> </p>
-            <p> <span className="powerstats">Durability: {durability}</span> </p>
-            <p> <span className="powerstats">Power: {power}</span> </p>
-            <p> <span className="powerstats">Combat: {combat}</span> </p>
+            <div className="stats-container">
+                <div className="powerstats">Intelligence: {intelligence}</div>
+                <div className="powerstats">Strength: {strength}</div>
+                <div className="powerstats">Speed: {speed}</div>
+                <div className="powerstats">Durability: {durability}</div>
+                <div className="powerstats">Power: {power}</div>
+                <div className="powerstats">Combat: {combat}</div>
+            </div>
             <button onClick={() => deleteSuperhero(id)}>Delete</button>
             <br></br>
         </div>
