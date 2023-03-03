@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import { SuperheroFilters, SuperheroCard } from "../../components";
 
-const superherosPage = () => {
+const SuperherosPage = () => {
     const [superheros, setSuperheros] = useState([]);
-    const [healthyOnly, setHealthyOnly] = useState(false);
-    const [vegetarianOnly, setVegetarianOnly] = useState(false);
+    //const [healthyOnly, setHealthyOnly] = useState(false);
+    const [activeOnly, setActiveOnly] = useState(false);
     const [textFilter, setTextFilter] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -68,8 +68,7 @@ const superherosPage = () => {
 
     function displaySuperheros() {
         return superheros
-            .filter((s) => !vegetarianOnly || s.vegetarian)
-            .filter((s) => !healthyOnly || s.healthy)
+            .filter((s) => !activeOnly || s.active)
             .filter(
                 (s) =>
                     textFilter.length == 0 ||
@@ -78,11 +77,16 @@ const superherosPage = () => {
             .map((s) => (
                 <SuperheroCard
                     key={s.id}
-                    id={s.id}
+                    id={s.id} // check later if necessary
                     name={s.name}
-                    vegetarian={s.vegetarian}
-                    healthy={s.healthy}
+                    intelligence={s.intelligence}
+                    strength={s.strength}
+                    speed={s.speed}
+                    durability={s.durability}
+                    power={s.power}
+                    combat={s.combat}
                     votes={s.votes}
+                    active={s.active}
                     vote={vote}
                     deleteSuperhero={deleteSuperhero}
                 />
@@ -93,11 +97,9 @@ const superherosPage = () => {
         <main className="superhero-main">
             <h1>superheros</h1>
             <SuperheroFilters
-                healthyOnly={healthyOnly}
-                vegetarianOnly={vegetarianOnly}
+                activeOnly={activeOnly}
                 textFilter={textFilter}
-                setHealthyOnly={setHealthyOnly}
-                setVegetarianOnly={setVegetarianOnly}
+                setActiveOnly={setActiveOnly}
                 setTextFilter={setTextFilter}
             />
             <div className="superhero-holder">
@@ -107,4 +109,4 @@ const superherosPage = () => {
     );
 };
 
-export default superherosPage;
+export default SuperherosPage;
