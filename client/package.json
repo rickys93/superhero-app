@@ -10,5 +10,12 @@
   },
   "devDependencies": {
     "vite": "^3.2.2"
-  }
+  },
+  "name": "client",
+  "description": "superhero Rankings is a React client that displays a list of superheros obtained from the server of the project. In order to run the client, users will need to download and set up the Express server which can be found [here](https://github.com/LaFosseAcademy/lap3_debug_assignment_lamarr_v-rickys93/tree/main/api).",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
