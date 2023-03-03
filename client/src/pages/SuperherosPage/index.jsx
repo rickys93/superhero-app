@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import { superheroFilters, superheroCard } from "../../components";
+import { SuperheroFilters, SuperheroCard } from "../../components";
 
 const superherosPage = () => {
-    const [superheros, setsuperheros] = useState([]);
+    const [superheros, setSuperheros] = useState([]);
     const [healthyOnly, setHealthyOnly] = useState(false);
     const [vegetarianOnly, setVegetarianOnly] = useState(false);
     const [textFilter, setTextFilter] = useState("");
@@ -23,7 +23,7 @@ const superherosPage = () => {
         );
         if (response.status === 200) {
             const data = await response.json();
-            setsuperheros(
+            setSuperheros(
                 superheros.map((s) =>
                     s.id == data.id ? { ...s, votes: data.votes } : s
                 )
@@ -31,7 +31,7 @@ const superherosPage = () => {
         }
     }
 
-    async function deletesuperhero(id) {
+    async function deleteSuperhero(id) {
         try {
             const options = {
                 method: "DELETE",
@@ -42,10 +42,10 @@ const superherosPage = () => {
                 options
             );
             if (response.status === 204) {
-                const updatedsuperheros = [...superheros].filter(
+                const updatedSuperheros = [...superheros].filter(
                     (s) => s.id !== id
                 );
-                setsuperheros(updatedsuperheros);
+                setSuperheros(updatedSuperheros);
             }
         } catch (error) {
             console.log("error", error);
@@ -54,19 +54,19 @@ const superherosPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        async function loadsuperheros() {
+        async function loadSuperheros() {
             const response = await fetch("http://localhost:3000/superheros");
             if (response.status === 200) {
                 const data = await response.json();
-                setsuperheros(data);
+                setSuperheros(data);
                 setLoading(false);
             }
         }
 
-        loadsuperheros();
+        loadSuperheros();
     }, []);
 
-    function displaysuperheros() {
+    function displaySuperheros() {
         return superheros
             .filter((s) => !vegetarianOnly || s.vegetarian)
             .filter((s) => !healthyOnly || s.healthy)
@@ -76,7 +76,7 @@ const superherosPage = () => {
                     s.name.toLowerCase().includes(textFilter.toLowerCase())
             )
             .map((s) => (
-                <superheroCard
+                <SuperheroCard
                     key={s.id}
                     id={s.id}
                     name={s.name}
@@ -84,7 +84,7 @@ const superherosPage = () => {
                     healthy={s.healthy}
                     votes={s.votes}
                     vote={vote}
-                    deletesuperhero={deletesuperhero}
+                    deleteSuperhero={deleteSuperhero}
                 />
             ));
     }
@@ -92,7 +92,7 @@ const superherosPage = () => {
     return (
         <main className="superhero-main">
             <h1>superheros</h1>
-            <superheroFilters
+            <SuperheroFilters
                 healthyOnly={healthyOnly}
                 vegetarianOnly={vegetarianOnly}
                 textFilter={textFilter}
@@ -101,7 +101,7 @@ const superherosPage = () => {
                 setTextFilter={setTextFilter}
             />
             <div className="superhero-holder">
-                {loading ? <h2>Loading...</h2> : displaysuperheros()}
+                {loading ? <h2>Loading...</h2> : displaySuperheros()}
             </div>
         </main>
     );
