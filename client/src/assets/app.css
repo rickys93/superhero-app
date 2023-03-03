@@ -6,8 +6,14 @@ body {
     margin: 0 auto;
     line-height: 1.6;
     font-size: 24px;
-    color: #2b061e;
-    background: #d9bfc0;
+    color: #ffffff;
+    background-attachment: fixed;
+    background-image: url("background.jpg");
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #root {

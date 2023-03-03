@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import './style.css'
 
 const linkStyle = {
-    color: "#875053",
+    color: "#cfdaf8",
 };
 
 const SuperheroCard = ({
