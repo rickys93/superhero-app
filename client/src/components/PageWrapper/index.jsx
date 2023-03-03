@@ -24,7 +24,7 @@ const PageWrapper = () => {
                 </nav>
             </header>
             <Outlet />
-            <footer>superhero Rankings 2022</footer>
+            <footer>Superhero Rankings 2022</footer>
         </>
     );
 };
