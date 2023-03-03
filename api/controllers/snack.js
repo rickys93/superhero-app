@@ -1,9 +1,9 @@
-const Snack = require("../models/snack.js");
+const superhero = require("../models/superhero.js");
 
 async function index(req, res) {
     try {
-        const snacks = await Snack.getAll();
-        res.status(200).json(snacks);
+        const superheros = await superhero.getAll();
+        res.status(200).json(superheros);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -12,8 +12,8 @@ async function index(req, res) {
 async function show(req, res) {
     try {
         const id = parseInt(req.params.id);
-        const snack = await Snack.getOneById(id);
-        res.status(200).json(snack);
+        const superhero = await superhero.getOneById(id);
+        res.status(200).json(superhero);
     } catch (err) {
         res.status(404).json({ error: err.message });
     }
@@ -22,8 +22,8 @@ async function show(req, res) {
 async function getTop(req, res) {
     try {
         const id = parseInt(req.params.id);
-        const snack = await Snack.getTopSnack(id);
-        res.status(200).json(snack);
+        const superhero = await superhero.getTopsuperhero(id);
+        res.status(200).json(superhero);
     } catch (err) {
         res.status(404).json({ error: err.message });
     }
@@ -31,8 +31,8 @@ async function getTop(req, res) {
 
 async function create(req, res) {
     try {
-        const snack = await Snack.create(req.body);
-        res.status(201).json(snack);
+        const superhero = await superhero.create(req.body);
+        res.status(201).json(superhero);
     } catch (err) {
         res.status(404).json({ error: err.message });
     }
@@ -42,8 +42,8 @@ async function update(req, res) {
     try {
         const id = parseInt(req.params.id);
         const data = req.body;
-        const snack = await Snack.getOneById(id);
-        const result = await snack.update(data);
+        const superhero = await superhero.getOneById(id);
+        const result = await superhero.update(data);
         res.status(200).json(result);
     } catch (err) {
         res.status(404).json({ error: err.message });
@@ -53,8 +53,8 @@ async function update(req, res) {
 async function destroy(req, res) {
     try {
         const id = parseInt(req.params.id);
-        const snack = await Snack.getOneById(id);
-        await snack.destroy();
+        const superhero = await superhero.getOneById(id);
+        await superhero.destroy();
         res.status(204).json(id);
     } catch (err) {
         res.status(404).json({ error: err.message });

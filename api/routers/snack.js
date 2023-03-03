@@ -1,14 +1,14 @@
-const { Router } = require('express');
+const { Router } = require("express");
 
-const snackController = require('../controllers/snack.js');
+const superheroController = require("../controllers/superhero.js");
 
-const snackRouter = Router();
+const superheroRouter = Router();
 
-snackRouter.get("/", snackController.index);
-snackRouter.get("/top", snackController.getTop);
-snackRouter.get("/:id", snackController.show);
-snackRouter.post("/", snackController.create);
-snackRouter.patch("/:id", snackController.update);
-snackRouter.delete("/:id", snackController.destroy);
+superheroRouter.get("/", superheroController.index);
+superheroRouter.get("/top", superheroController.getTop);
+superheroRouter.get("/:id", superheroController.show);
+superheroRouter.post("/", superheroController.create);
+superheroRouter.patch("/:id", superheroController.update);
+superheroRouter.delete("/:id", superheroController.destroy);
 
-module.exports = snackRouter;
+module.exports = superheroRouter;

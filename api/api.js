@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 
-const snackRouter = require("./routers/snack");
+const superheroRouter = require("./routers/superhero");
 
 const api = express();
 
@@ -12,11 +12,11 @@ api.use(morgan("tiny"));
 
 api.get("/", (req, res) => {
     res.json({
-        title: "Snack Rankings",
-        description: "Find and rate the best snacks ever!",
+        title: "superhero Rankings",
+        description: "Find and rate the best superheros ever!",
     });
 });
 
-api.use("/snacks", snackRouter);
+api.use("/superheros", superheroRouter);
 
 module.exports = api;
