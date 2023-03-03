@@ -5,7 +5,7 @@
     box-shadow: 5px 5px 5px #777;
     width: 16rem;
     display: flex;
-    background-color: white;
+    background-color: rgb(2, 6, 61);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
