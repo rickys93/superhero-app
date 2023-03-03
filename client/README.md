@@ -1,6 +1,6 @@
-# Snack Rankings Client
+# superhero Rankings Client
 ## Introduction
-Snack Rankings is a React client that displays a list of snacks obtained from the server of the project. In order to run the client, users will need to download and set up the Express server which can be found [here](https://github.com/LaFosseAcademy/lap3_debug_assignment_lamarr_v-rickys93/tree/main/api).
+superhero Rankings is a React client that displays a list of superheros obtained from the server of the project. In order to run the client, users will need to download and set up the Express server which can be found [here](https://github.com/LaFosseAcademy/lap3_debug_assignment_lamarr_v-rickys93/tree/main/api).
 
 ## Installation
 To install the required libraries, follow these steps:

@@ -19,22 +19,22 @@ In this assignment, you'll be editing an existing software project. There are se
 
 ## Project context
 
-You may recall having to fix the code of a **Snack Rankings** back-end project for your debug assignment 2. 
+You may recall having to fix the code of a **superhero Rankings** back-end project for your debug assignment 2. 
 
-This time around, you will be fixing the front-end code for the *Snack Rankings* project. 
+This time around, you will be fixing the front-end code for the *superhero Rankings* project. 
 
 The front-end allows users to:
- - View their favourite snacks
- - Vote on their favourite snacks
- - View the top-voted snack
- - Create a new snack
- - Delete a snack
+ - View their favourite superheros
+ - Vote on their favourite superheros
+ - View the top-voted superhero
+ - Create a new superhero
+ - Delete a superhero
 
 This full-stack project has three key elements:
 
-- An API that allows users to vote on snacks and see a list of snacks with their total votes
+- An API that allows users to vote on superheros and see a list of superheros with their total votes
 - A React-based front-end for interacting with the API
-- A database storing the snack data
+- A database storing the superhero data
 
 **The database is not provided to you for this project; you'll need to [configure](#database) your own.**
 
@@ -55,12 +55,12 @@ The API has the following routes and functionalities:
 | Route | Method | Response |
 | --- | --- | --- |
 | `/` | `GET` | Returns a JSON object describing the API. |
-| `/snacks` | `GET` | Returns a JSON object containing all the snacks. |
-| `/snacks` | `POST` | Accepts a JSON object and uses it to create and store a new snack. |
-| `/snacks/top` | `GET` | Returns a JSON object representing the snack with the most votes. |
-| `/snacks/:id` | `GET` | Returns a JSON object representing a single snack from the collection, selected by `:id`. |
-| `/snacks/:id` | `PATCH` | Updates a specific snack, incrementing or decrementing its vote count. |
-| `/snacks/:id` | `DELETE` | Deletes a specific snack, selected by `:id`. |
+| `/superheros` | `GET` | Returns a JSON object containing all the superheros. |
+| `/superheros` | `POST` | Accepts a JSON object and uses it to create and store a new superhero. |
+| `/superheros/top` | `GET` | Returns a JSON object representing the superhero with the most votes. |
+| `/superheros/:id` | `GET` | Returns a JSON object representing a single superhero from the collection, selected by `:id`. |
+| `/superheros/:id` | `PATCH` | Updates a specific superhero, incrementing or decrementing its vote count. |
+| `/superheros/:id` | `DELETE` | Deletes a specific superhero, selected by `:id`. |
 
 Use an API testing platform such as Hoppscotch, Postman or Insomnia to test the API, if you need to.
 
@@ -80,10 +80,10 @@ As part of the assignment, you'll need to connect a database by:
 The client consists of a React app with five distinct pages:
 
 - A "homepage", which introduces the site
-- A "snacks" page, which lists all the snacks and allows users to filter snacks in various ways as well as delete any snacks
-- A "snack" page, accessible from the "snacks" page, which displays an individual snack
-- A "best snack" page, which displays the current most highly-voted snack
-- An "add a snack" page, which allows users to create a new snack by adding a snack name and description as well as categorising them as 'healthy' or 'vegetarian' 
+- A "superheros" page, which lists all the superheros and allows users to filter superheros in various ways as well as delete any superheros
+- A "superhero" page, accessible from the "superheros" page, which displays an individual superhero
+- A "best superhero" page, which displays the current most highly-voted superhero
+- An "add a superhero" page, which allows users to create a new superhero by adding a superhero name and description as well as categorising them as 'healthy' or 'vegetarian' 
 - A "not found" page, which is displayed when a user attempts to visit a page that does not exist
 
 When the "not found" page is displayed, users should see a short message and a link that leads back to the homepage.

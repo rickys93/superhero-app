@@ -1,88 +1,131 @@
-import React from 'react'
+import React from "react";
 
-export default function SnackForm({inputText, setInputText, description, setDescription, message, setMessage, vegetarian, setVegetarianCheckbox, healthy, setHealthyCheckbox}) {
+export default function superheroForm({
+    inputText,
+    setInputText,
+    description,
+    setDescription,
+    message,
+    setMessage,
+    vegetarian,
+    setVegetarianCheckbox,
+    healthy,
+    setHealthyCheckbox,
+}) {
     function handleInput(e) {
-        setInputText(e.target.value)
+        setInputText(e.target.value);
     }
-    
+
     function handleDescription(e) {
-        setDescription(e.target.value)
+        setDescription(e.target.value);
     }
 
     function handleVegetarian() {
-        setVegetarianCheckbox(!vegetarian)
+        setVegetarianCheckbox(!vegetarian);
     }
 
     function handleHealthy() {
-        setHealthyCheckbox(!healthy)
+        setHealthyCheckbox(!healthy);
     }
 
     function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         if (inputText.length > 0 && description.length > 0) {
-            fetch('http://localhost:3000/snacks', {
-                method: 'POST',
-                body: JSON.stringify(
-                    {
-                        snack_name: inputText, 
-                        snack_description: description, 
-                        healthy: healthy, 
-                        vegetarian: vegetarian
-                    }
-                ),
+            fetch("http://localhost:3000/superheros", {
+                method: "POST",
+                body: JSON.stringify({
+                    superhero_name: inputText,
+                    superhero_description: description,
+                    healthy: healthy,
+                    vegetarian: vegetarian,
+                }),
                 headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
+                    "Content-type": "application/json; charset=UTF-8",
                 },
             })
-            .then((res) => {
-                console.log(res)
-                if (res.status !== 201) {
-                    setMessage('Error adding snack, please try another.');
-                    return
-                } else {
-                    setMessage('Snack added successfully.');
-                }
-                return res.json()
-            })
-            .then((data) => {
-
-                setTimeout(() => {
-                    setMessage('')
-                }, 5000)
-            })
-            .catch((err) => {
-                console.log(err.message);
-                setMessage('There was a problem in creating your snack.');
-                setTimeout(() => {
-                    setMessage('')
-                }, 5000)
-            });
-            setInputText('')
-            setDescription('')
+                .then((res) => {
+                    console.log(res);
+                    if (res.status !== 201) {
+                        setMessage(
+                            "Error adding superhero, please try another."
+                        );
+                        return;
+                    } else {
+                        setMessage("superhero added successfully.");
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    setTimeout(() => {
+                        setMessage("");
+                    }, 5000);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                    setMessage(
+                        "There was a problem in creating your superhero."
+                    );
+                    setTimeout(() => {
+                        setMessage("");
+                    }, 5000);
+                });
+            setInputText("");
+            setDescription("");
         } else {
-            setMessage('Please enter a snack.');
+            setMessage("Please enter a superhero.");
             setTimeout(() => {
-                setMessage('')
-            }, 5000)
+                setMessage("");
+            }, 5000);
         }
     }
 
-    return(
+    return (
         <form>
             <div>
-                <input placeholder="Snack name" id="snack-text" value={inputText} type="text" className="snack-text" onChange={handleInput}/>
+                <input
+                    placeholder="superhero name"
+                    id="superhero-text"
+                    value={inputText}
+                    type="text"
+                    className="superhero-text"
+                    onChange={handleInput}
+                />
             </div>
             <div>
-                <input placeholder="Snack description" id="snack-description" value={description} type="text" className="snack-description" onChange={handleDescription}/>
+                <input
+                    placeholder="superhero description"
+                    id="superhero-description"
+                    value={description}
+                    type="text"
+                    className="superhero-description"
+                    onChange={handleDescription}
+                />
             </div>
             <div>
-                <input type="checkbox" name="healthy" value="healthy" onChange={handleHealthy}/>
+                <input
+                    type="checkbox"
+                    name="healthy"
+                    value="healthy"
+                    onChange={handleHealthy}
+                />
                 <label htmlFor="healthy">Healthy</label>
-                <input type="checkbox" name="vegetarian" value="vegetarian" onChange={handleVegetarian}/>
-                <label htmlFor="vegetarian">Vegetarian</label><br></br>
+                <input
+                    type="checkbox"
+                    name="vegetarian"
+                    value="vegetarian"
+                    onChange={handleVegetarian}
+                />
+                <label htmlFor="vegetarian">Vegetarian</label>
+                <br></br>
             </div>
-            <button type="submit" className="snack-button" onClick={handleSubmit}>Add a snack</button>
-            <p className='message'>{message}</p>
+            <button
+                type="submit"
+                className="superhero-button"
+                onClick={handleSubmit}
+            >
+                Add a superhero
+            </button>
+            <p className="message">{message}</p>
         </form>
-    )
+    );
 }

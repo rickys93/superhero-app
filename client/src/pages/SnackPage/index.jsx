@@ -1,49 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 
-const SnackPage = () => {
-    const { id } = useParams()
+const superheroPage = () => {
+    const { id } = useParams();
 
     const [loading, setLoading] = useState(false);
-    const [snack, setSnack] = useState({});
+    const [superhero, setsuperhero] = useState({});
 
     useEffect(() => {
-
         setLoading(true);
-        async function loadSnack() {
-
-            const response = await fetch(`http://localhost:3000/snacks/${id}`);
+        async function loadsuperhero() {
+            const response = await fetch(
+                `http://localhost:3000/superheros/${id}`
+            );
 
             if (response.status === 200) {
                 const data = await response.json();
-                setSnack(data);
+                setsuperhero(data);
                 setLoading(false);
             }
-        };
+        }
 
-        loadSnack();
+        loadsuperhero();
+    }, []);
 
-    }, [])
-
-    function displaySnack() {
+    function displaysuperhero() {
         return (
             <main>
-                <h1 className="close-title">{snack.name}</h1>
+                <h1 className="close-title">{superhero.name}</h1>
                 <p>
-                    <em>{snack.description}</em>
+                    <em>{superhero.description}</em>
                 </p>
-                <span className="votes-counter">Votes: {snack.votes}</span>
-                <p className="snack-details-holder">
-                    { snack.vegetarian ? <span className="vegetarian icon">V</span> : ""}
-                    { snack.healthy ? <span className="healthy icon">H</span> : ""}
+                <span className="votes-counter">Votes: {superhero.votes}</span>
+                <p className="superhero-details-holder">
+                    {superhero.vegetarian ? (
+                        <span className="vegetarian icon">V</span>
+                    ) : (
+                        ""
+                    )}
+                    {superhero.healthy ? (
+                        <span className="healthy icon">H</span>
+                    ) : (
+                        ""
+                    )}
                 </p>
-                <Link to="/snacks">Back</Link>
+                <Link to="/superheros">Back</Link>
             </main>
-        )
+        );
     }
 
-    return loading ? <h2><em>loading...</em></h2> : displaySnack();
-
+    return loading ? (
+        <h2>
+            <em>loading...</em>
+        </h2>
+    ) : (
+        displaysuperhero()
+    );
 };
 
-export default SnackPage;
+export default superheroPage;
