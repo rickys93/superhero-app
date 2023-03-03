@@ -13,7 +13,7 @@ class Superhero {
         combat,
         votes,
     }) {
-        this.superhero_id = superhero_id;
+        this.id = superhero_id;
         this.name = name;
         this.description = description;
         this.intelligence = intelligence;

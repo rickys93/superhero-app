@@ -55,7 +55,7 @@ async function destroy(req, res) {
         const id = parseInt(req.params.id);
         const superhero = await Superhero.getOneById(id);
         await superhero.destroy();
-        res.status(204).json(id);
+        res.sendStatus(204);
     } catch (err) {
         res.status(404).json({ error: err.message });
     }
