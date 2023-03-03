@@ -1,6 +1,11 @@
-# How to create a similar application
+# Superheros app
 
 Contributors: @GabrielleMonaen and @Rickys93.
+
+This is a full-stack app built with Express, PostgreSQL, NodeJS, and React.
+The goal was to practise writing React CRUD methods. A search feature is also demonstrated. The filter functionality is still being worked on.
+
+## How to create a similar application
 
 1. Create the `.env` file with the DB_URL and PORT environment variables, as below:
 ```
