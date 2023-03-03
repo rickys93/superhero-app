@@ -33,16 +33,30 @@ const SuperheroPage = () => {
                 </p>
                 <span className="votes-counter">Votes: {superhero.votes}</span>
                 <p className="superhero-details-holder">
-                    {superhero.vegetarian ? (
-                        <span className="vegetarian icon">V</span>
+                    {superhero.active ? (
+                        <span className="vegetarian icon">A</span>
                     ) : (
                         ""
                     )}
-                    {superhero.healthy ? (
-                        <span className="healthy icon">H</span>
-                    ) : (
-                        ""
-                    )}
+                </p>
+                {/* Add superhero stats */}
+                <p>
+                    Intelligence: {superhero.intelligence}
+                </p>
+                <p>
+                    Strength: {superhero.strength}
+                </p>
+                <p>
+                    Speed: {superhero.speed}
+                </p>
+                <p>
+                    Durability: {superhero.durability}
+                </p>
+                <p>
+                    Power: {superhero.power}
+                </p>
+                <p>
+                    Combat: {superhero.combat}
                 </p>
                 <Link to="/superheros">Back</Link>
             </main>
