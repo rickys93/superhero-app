@@ -1,6 +1,6 @@
-export { default as superheroPage } from "./superheroPage";
+export { default as SuperheroPage } from "./SuperheroPage";
 export { default as HomePage } from "./HomePage";
 export { default as NotFoundPage } from "./NotFoundPage";
-export { default as superheroesPage } from "./superheroesPage";
-export { default as BestsuperheroPage } from "./BestsuperheroPage";
-export { default as AddsuperheroPage } from "./AddsuperheroPage";
+export { default as SuperheroesPage } from "./SuperheroesPage";
+export { default as BestSuperheroPage } from "./BestSuperheroPage";
+export { default as AddSuperheroPage } from "./AddSuperheroPage";

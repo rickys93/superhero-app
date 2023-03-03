@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
-const superheroPage = () => {
+const SuperheroPage = () => {
     const { id } = useParams();
 
     const [loading, setLoading] = useState(false);
-    const [superhero, setsuperhero] = useState({});
+    const [superhero, setSuperhero] = useState({});
 
     useEffect(() => {
         setLoading(true);
-        async function loadsuperhero() {
+        async function loadSuperhero() {
             const response = await fetch(
                 `http://localhost:3000/superheroes/${id}`
             );
 
             if (response.status === 200) {
                 const data = await response.json();
-                setsuperhero(data);
+                setSuperhero(data);
                 setLoading(false);
             }
         }
 
-        loadsuperhero();
+        loadSuperhero();
     }, []);
 
-    function displaysuperhero() {
+    function displaySuperhero() {
         return (
             <main>
                 <h1 className="close-title">{superhero.name}</h1>
@@ -33,16 +33,30 @@ const superheroPage = () => {
                 </p>
                 <span className="votes-counter">Votes: {superhero.votes}</span>
                 <p className="superhero-details-holder">
-                    {superhero.vegetarian ? (
-                        <span className="vegetarian icon">V</span>
+                    {superhero.active ? (
+                        <span className="vegetarian icon">A</span>
                     ) : (
                         ""
                     )}
-                    {superhero.healthy ? (
-                        <span className="healthy icon">H</span>
-                    ) : (
-                        ""
-                    )}
+                </p>
+                {/* Add superhero stats */}
+                <p>
+                    Intelligence: {superhero.intelligence}
+                </p>
+                <p>
+                    Strength: {superhero.strength}
+                </p>
+                <p>
+                    Speed: {superhero.speed}
+                </p>
+                <p>
+                    Durability: {superhero.durability}
+                </p>
+                <p>
+                    Power: {superhero.power}
+                </p>
+                <p>
+                    Combat: {superhero.combat}
                 </p>
                 <Link to="/superheroes">Back</Link>
             </main>
@@ -54,8 +68,8 @@ const superheroPage = () => {
             <em>loading...</em>
         </h2>
     ) : (
-        displaysuperhero()
+        displaySuperhero()
     );
 };
 
-export default superheroPage;
+export default SuperheroPage;

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import { superheroFilters, superheroCard } from "../../components";
+import { SuperheroFilters, SuperheroCard } from "../../components";
 
-const superheroesPage = () => {
-    const [superheroes, setsuperheroes] = useState([]);
-    const [healthyOnly, setHealthyOnly] = useState(false);
-    const [vegetarianOnly, setVegetarianOnly] = useState(false);
+const SuperheroesPage = () => {
+    const [superheroes, setSuperheroes] = useState([]);
+    //const [healthyOnly, setHealthyOnly] = useState(false);
+    const [activeOnly, setActiveOnly] = useState(false);
     const [textFilter, setTextFilter] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -23,7 +23,7 @@ const superheroesPage = () => {
         );
         if (response.status === 200) {
             const data = await response.json();
-            setsuperheroes(
+            setSuperheroes(
                 superheroes.map((s) =>
                     s.id == data.id ? { ...s, votes: data.votes } : s
                 )
@@ -31,7 +31,7 @@ const superheroesPage = () => {
         }
     }
 
-    async function deletesuperhero(id) {
+    async function deleteSuperhero(id) {
         try {
             const options = {
                 method: "DELETE",
@@ -42,10 +42,10 @@ const superheroesPage = () => {
                 options
             );
             if (response.status === 204) {
-                const updatedsuperheroes = [...superheroes].filter(
+                const updatedSuperheroes = [...superheroes].filter(
                     (s) => s.id !== id
                 );
-                setsuperheroes(updatedsuperheroes);
+                setSuperheroes(updatedSuperheroes);
             }
         } catch (error) {
             console.log("error", error);
@@ -54,37 +54,41 @@ const superheroesPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        async function loadsuperheroes() {
+        async function loadSuperheroes() {
             const response = await fetch("http://localhost:3000/superheroes");
             if (response.status === 200) {
                 const data = await response.json();
-                setsuperheroes(data);
+                setSuperheroes(data);
                 setLoading(false);
             }
         }
 
-        loadsuperheroes();
+        loadSuperheroes();
     }, []);
 
-    function displaysuperheroes() {
+    function displaySuperheroes() {
         return superheroes
-            .filter((s) => !vegetarianOnly || s.vegetarian)
-            .filter((s) => !healthyOnly || s.healthy)
+            .filter((s) => !activeOnly || s.active)
             .filter(
                 (s) =>
                     textFilter.length == 0 ||
                     s.name.toLowerCase().includes(textFilter.toLowerCase())
             )
             .map((s) => (
-                <superheroCard
+                <SuperheroCard
                     key={s.id}
-                    id={s.id}
+                    id={s.id} // check later if necessary
                     name={s.name}
-                    vegetarian={s.vegetarian}
-                    healthy={s.healthy}
+                    intelligence={s.intelligence}
+                    strength={s.strength}
+                    speed={s.speed}
+                    durability={s.durability}
+                    power={s.power}
+                    combat={s.combat}
                     votes={s.votes}
+                    active={s.active}
                     vote={vote}
-                    deletesuperhero={deletesuperhero}
+                    deleteSuperhero={deleteSuperhero}
                 />
             ));
     }
@@ -92,19 +96,17 @@ const superheroesPage = () => {
     return (
         <main className="superhero-main">
             <h1>superheroes</h1>
-            <superheroFilters
-                healthyOnly={healthyOnly}
-                vegetarianOnly={vegetarianOnly}
+            <SuperheroFilters
+                activeOnly={activeOnly}
                 textFilter={textFilter}
-                setHealthyOnly={setHealthyOnly}
-                setVegetarianOnly={setVegetarianOnly}
+                setActiveOnly={setActiveOnly}
                 setTextFilter={setTextFilter}
             />
             <div className="superhero-holder">
-                {loading ? <h2>Loading...</h2> : displaysuperheroes()}
+                {loading ? <h2>Loading...</h2> : displaySuperheroes()}
             </div>
         </main>
     );
 };
 
-export default superheroesPage;
+export default SuperheroesPage;
