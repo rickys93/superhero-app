@@ -2,7 +2,7 @@ import React from 'react'
 function StatInput({label, handleInput}) {
   return (
     <div>
-        <label for={`int-input-${label}`}>{label}: </label>
+        <label htmlFor={`int-input-${label}`}>{label}: </label>
         <select id={`int-input-${label}`} name={`int-input-${label}`} onChange={handleInput}>
             <option value="0">0</option>
             <option value="1">1</option>
