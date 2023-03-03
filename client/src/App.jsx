@@ -3,12 +3,13 @@ import { Routes, Route } from "react-router-dom";
 
 import {
     HomePage,
-    superherosPage,
-    superheroPage,
-    BestsuperheroPage,
-    AddsuperheroPage,
+    SuperherosPage,
+    SuperheroPage,
+    BestSuperheroPage,
+    AddSuperheroPage,
     NotFoundPage,
 } from "./pages";
+
 import { PageWrapper } from "./components";
 
 import "./assets/app.css";
@@ -19,10 +20,10 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<PageWrapper />}>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/superheros" element={<superherosPage />} />
-                    <Route path="/superheros/:id" element={<superheroPage />} />
-                    <Route path="/best" element={<BestsuperheroPage />} />
-                    <Route path="/add" element={<AddsuperheroPage />} />
+                    <Route path="/superheros" element={<SuperherosPage />} />
+                    <Route path="/superheros/:id" element={<SuperheroPage />} />
+                    <Route path="/best" element={<BestSuperheroPage />} />
+                    <Route path="/add" element={<AddSuperheroPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Route>
             </Routes>
